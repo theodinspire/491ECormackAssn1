@@ -57,4 +57,35 @@ class StackView: UIView {
         
         setNeedsDisplay()
     }
+    
+    //  **SORTS**
+    //  Quicksort
+    func quickSort() {
+        StackView.quikSort(&stacks, low: 0, high: stacks.count - 1)
+    }
+    
+    private static func quikSort<T>(_ array: inout [T], low: Int, high: Int) where T: Comparable {
+        if low < high {
+            let p = qSPartition(&array, low: low, high: high)
+            quikSort(&array, low: low,   high: p - 1)
+            quikSort(&array, low: p + 1, high: high)
+        }
+    }
+    
+    private static func qSPartition<T>(_ array: inout [T], low: Int, high: Int) -> Int where T: Comparable {
+        let pivot = array[high]
+        var i = low - 1
+        
+        for j in low..<high {
+            if array[j] <= pivot {
+                i += 1
+                swap(&array[i], &array[j])
+            }
+        }
+        
+        i += 1
+        swap(&array[i], &array[high])
+        
+        return i;
+    }
 }

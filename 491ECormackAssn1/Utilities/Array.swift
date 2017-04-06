@@ -12,7 +12,7 @@ extension Array {
     mutating func shuffle() {
         for i in (1..<self.count) {
             let j = Int(arc4random_uniform(UInt32(i)))
-            (self[i], self[j]) = (self[j], self[i])
+            swap(&self[i], &self[j])
         }
     }
 }
