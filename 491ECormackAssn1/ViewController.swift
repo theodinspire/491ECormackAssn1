@@ -9,10 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet var stacks: [StackView]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        for stack in stacks { stack.shuffle() }
     }
 
     override func didReceiveMemoryWarning() {
