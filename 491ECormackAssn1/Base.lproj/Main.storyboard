@@ -22,23 +22,124 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zw-JJ-sxh" customClass="StackView" customModule="_91ECormackAssn1" customModuleProvider="target">
-                                <rect key="frame" x="16" y="100" width="343" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="6G5-8o-sHO"/>
-                                </constraints>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Fhl-Ck-Pwc" userLabel="Buttons">
+                                <rect key="frame" x="16" y="28" width="343" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8s7-2D-8BQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
+                                        <state key="normal" title="Shuffle"/>
+                                        <connections>
+                                            <action selector="suffleBars:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ek1-cy-jiJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBA-BL-E4F">
+                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
+                                        <state key="normal" title="Sort"/>
+                                        <connections>
+                                            <action selector="sortBars:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ixd-Y7-Ipo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="r4a-XE-559">
+                                <rect key="frame" x="16" y="66" width="343" height="29"/>
+                                <segments>
+                                    <segment title="16"/>
+                                    <segment title="32"/>
+                                    <segment title="48"/>
+                                    <segment title="64"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setCount:" destination="BYZ-38-t0r" eventType="valueChanged" id="yhn-TJ-FbS"/>
+                                </connections>
+                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Av9-AU-B8j">
+                                <rect key="frame" x="16" y="114" width="343" height="533"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="glm-Wf-hKi" userLabel="Top">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="256.5"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="28" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JgG-Es-fwA">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                                <segments>
+                                                    <segment title="Insert"/>
+                                                    <segment title="Bubble"/>
+                                                    <segment title="Merge"/>
+                                                    <segment title="Quick"/>
+                                                </segments>
+                                            </segmentedControl>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zw-JJ-sxh" customClass="BarView" customModule="_91ECormackAssn1" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="36" width="343" height="220.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="barColor">
+                                                        <color key="value" red="0.39215686274509803" green="0.36862745098039218" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="JgG-Es-fwA" firstAttribute="leading" secondItem="glm-Wf-hKi" secondAttribute="leading" id="2VX-zb-eQE"/>
+                                            <constraint firstItem="JgG-Es-fwA" firstAttribute="top" secondItem="glm-Wf-hKi" secondAttribute="top" id="LrQ-uY-sRP"/>
+                                            <constraint firstAttribute="trailing" secondItem="5Zw-JJ-sxh" secondAttribute="trailing" id="PC9-we-g5h"/>
+                                            <constraint firstAttribute="bottom" secondItem="5Zw-JJ-sxh" secondAttribute="bottom" id="PvP-Xs-dmq"/>
+                                            <constraint firstItem="5Zw-JJ-sxh" firstAttribute="leading" secondItem="glm-Wf-hKi" secondAttribute="leading" id="Qcv-1b-xg7"/>
+                                            <constraint firstAttribute="trailing" secondItem="JgG-Es-fwA" secondAttribute="trailing" id="UH6-Ab-srE"/>
+                                            <constraint firstItem="5Zw-JJ-sxh" firstAttribute="top" secondItem="JgG-Es-fwA" secondAttribute="bottom" constant="8" id="tTG-Wj-Gas"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="7PW-Zd-Zfh" userLabel="Bottom">
+                                        <rect key="frame" x="0.0" y="276.5" width="343" height="256.5"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GNi-iZ-NHi">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="121.5"/>
+                                                <segments>
+                                                    <segment title="Insert"/>
+                                                    <segment title="Bubble"/>
+                                                    <segment title="Merge"/>
+                                                    <segment title="Quick"/>
+                                                </segments>
+                                            </segmentedControl>
+                                            <view contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J6s-58-IHg" customClass="BarView" customModule="_91ECormackAssn1" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="128.5" width="343" height="128"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="barColor">
+                                                        <color key="value" red="0.65098039215686276" green="0.83137254901960778" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="J6s-58-IHg" secondAttribute="trailing" id="0qb-Mr-TDf"/>
+                                            <constraint firstItem="J6s-58-IHg" firstAttribute="leading" secondItem="7PW-Zd-Zfh" secondAttribute="leading" id="6zP-K0-dL3"/>
+                                            <constraint firstItem="GNi-iZ-NHi" firstAttribute="leading" secondItem="7PW-Zd-Zfh" secondAttribute="leading" id="Zg1-4f-GdT"/>
+                                            <constraint firstAttribute="trailing" secondItem="GNi-iZ-NHi" secondAttribute="trailing" id="kJo-JP-BMJ"/>
+                                            <constraint firstItem="GNi-iZ-NHi" firstAttribute="top" secondItem="7PW-Zd-Zfh" secondAttribute="top" id="pfX-gZ-Ckd"/>
+                                            <constraint firstAttribute="bottom" secondItem="J6s-58-IHg" secondAttribute="bottom" id="pkK-ul-vwp"/>
+                                            <constraint firstItem="J6s-58-IHg" firstAttribute="top" secondItem="GNi-iZ-NHi" secondAttribute="bottom" constant="8" id="qfi-hQ-pX9"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5Zw-JJ-sxh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="2rp-eH-taO"/>
-                            <constraint firstItem="5Zw-JJ-sxh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="35g-8S-lpY"/>
-                            <constraint firstItem="5Zw-JJ-sxh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gQy-uG-MaB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Av9-AU-B8j" secondAttribute="bottom" constant="20" id="8Nm-zd-tJt"/>
+                            <constraint firstItem="r4a-XE-559" firstAttribute="top" secondItem="Fhl-Ck-Pwc" secondAttribute="bottom" constant="8" id="DHY-of-gHX"/>
+                            <constraint firstItem="Av9-AU-B8j" firstAttribute="top" secondItem="r4a-XE-559" secondAttribute="bottom" constant="20" id="Dzi-J1-BnF"/>
+                            <constraint firstItem="Fhl-Ck-Pwc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Krf-W8-wSC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fhl-Ck-Pwc" secondAttribute="trailing" id="Y9Q-Em-Iew"/>
+                            <constraint firstItem="r4a-XE-559" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Zl7-10-AwX"/>
+                            <constraint firstItem="r4a-XE-559" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Zvq-tZ-O8g"/>
+                            <constraint firstItem="Fhl-Ck-Pwc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="l2p-32-hLp"/>
+                            <constraint firstItem="Av9-AU-B8j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mmL-dZ-tei"/>
+                            <constraint firstItem="Av9-AU-B8j" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pEb-6j-DQM"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outletCollection property="stacks" destination="5Zw-JJ-sxh" collectionClass="NSMutableArray" id="FnS-f2-QL4"/>
+                        <outletCollection property="barViews" destination="5Zw-JJ-sxh" collectionClass="NSMutableArray" id="stU-cJ-q8K"/>
+                        <outletCollection property="barViews" destination="J6s-58-IHg" collectionClass="NSMutableArray" id="sb3-qi-3dh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

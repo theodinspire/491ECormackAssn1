@@ -9,12 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var stacks: [StackView]!
+    static let INTERVAL: useconds_t = 30
+    
+    @IBOutlet var barViews: [BarView]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        for stack in stacks { stack.shuffle() }
+        for var barView in barViews {
+            barView.sorter = TimedQuickSorter(barView: &barView, interval: ViewController.INTERVAL)
+            barView.backgroundColor = UIColor.clear
+            barView.shuffle()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +28,23 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func setCount(_ sender: UISegmentedControl) {
+        if let title = sender.titleForSegment(at: sender.selectedSegmentIndex),
+            let newCount = Int(title) {
+            for barView in barViews { barView.count = newCount }
+        }
+    }
 
+    @IBAction func suffleBars(_ sender: UIButton) {
+        for barView in barViews { barView.shuffle() }
+    }
+    
+    @IBAction func sortBars(_ sender: UIButton) {
+        for barView in barViews {
+            DispatchQueue.global().async {
+                barView.sorter?.sort()
+            }
+        }
+    }
 }
 

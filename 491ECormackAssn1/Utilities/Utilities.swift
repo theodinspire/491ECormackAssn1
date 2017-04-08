@@ -7,5 +7,3 @@
 //
 
 import Foundation
-
-func swap<T>(_ a: inout T, _ b: inout T) { (a, b) = (b, a) }
