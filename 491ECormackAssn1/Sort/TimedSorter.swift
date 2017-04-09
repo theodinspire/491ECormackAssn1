@@ -11,6 +11,8 @@ import Foundation
 protocol TimedSorter {
     var interval: useconds_t { get }
     unowned var barView: BarView { get }
+    var isSorting: Bool { get }
+    var title: String { get }
     
     init(barView view: inout BarView, interval deltaT: useconds_t)
     
@@ -20,11 +22,13 @@ protocol TimedSorter {
 extension TimedSorter {
     func swap<T>(_ a: inout T, _ b: inout T) { (a, b) = (b, a) }
     
-    func snooze() { usleep(interval) }
+    func snooze() {
+        DispatchQueue.main.async { self.barView.setNeedsDisplay() }
+        usleep(interval)
+    }
     
     func swapAndSnooze<T>(_ a: inout T, _ b: inout T) {
         (a, b) = (b, a)
-        barView.setNeedsDisplay()
         snooze()
     }
 }

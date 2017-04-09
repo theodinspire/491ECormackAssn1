@@ -11,6 +11,8 @@ import UIKit
 class TimedBubbleSorter: TimedSorter {
     var interval: useconds_t
     unowned var barView: BarView
+    var isSorting: Bool = false
+    var title = "Bubble"
     
     required init(barView view: inout BarView, interval deltaT: useconds_t) {
         interval = deltaT
@@ -18,6 +20,17 @@ class TimedBubbleSorter: TimedSorter {
     }
     
     func sort() {
-        //quickSort(low: 0, high: barView.bars.count - 1)
+        isSorting = true
+        var hasSwapped = true
+        while hasSwapped {
+            hasSwapped = false
+            for i in 1 ..< barView.bars.count {
+                if barView.bars[i - 1] > barView.bars[i] {
+                    hasSwapped = true
+                    swapAndSnooze(&barView.bars[i - 1], &barView.bars[i])
+                }
+            }
+        }
+        isSorting = false
     }
 }

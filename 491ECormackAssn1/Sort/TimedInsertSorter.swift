@@ -11,6 +11,8 @@ import UIKit
 class TimedInsertSorter: TimedSorter {
     var interval: useconds_t
     unowned var barView: BarView
+    var isSorting = false
+    var title = "Insert"
     
     required init(barView view: inout BarView, interval deltaT: useconds_t) {
         interval = deltaT
@@ -18,6 +20,14 @@ class TimedInsertSorter: TimedSorter {
     }
     
     func sort() {
-        //quickSort(low: 0, high: barView.bars.count - 1)
+        isSorting = true
+        for i in 0..<barView.bars.count {
+            var j = i
+            while j > 0 && barView.bars[j - 1] > barView.bars[j] {
+                swapAndSnooze(&barView.bars[j - 1], &barView.bars[j])
+                j -= 1
+            }
+        }
+        isSorting = false
     }
 }

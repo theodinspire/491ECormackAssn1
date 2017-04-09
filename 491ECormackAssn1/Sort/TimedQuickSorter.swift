@@ -11,6 +11,8 @@ import UIKit
 class TimedQuickSorter: TimedSorter {
     var interval: useconds_t
     unowned var barView: BarView
+    var isSorting = false
+    var title = "Quick"
     
     required init(barView view: inout BarView, interval deltaT: useconds_t) {
         interval = deltaT
@@ -18,7 +20,9 @@ class TimedQuickSorter: TimedSorter {
     }
     
     func sort() {
+        isSorting = true
         quickSort(low: 0, high: barView.bars.count - 1)
+        isSorting = false
     }
     
     private func quickSort(low: Int, high: Int) {

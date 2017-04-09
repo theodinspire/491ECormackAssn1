@@ -60,13 +60,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="256.5"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="28" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JgG-Es-fwA">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                                <rect key="frame" x="0.0" y="-1" width="343" height="29"/>
                                                 <segments>
                                                     <segment title="Insert"/>
                                                     <segment title="Bubble"/>
                                                     <segment title="Merge"/>
                                                     <segment title="Quick"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="changeSort:" destination="BYZ-38-t0r" eventType="valueChanged" id="l3f-YA-Ljn"/>
+                                                </connections>
                                             </segmentedControl>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zw-JJ-sxh" customClass="BarView" customModule="_91ECormackAssn1" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="36" width="343" height="220.5"/>
@@ -99,6 +102,9 @@
                                                     <segment title="Merge"/>
                                                     <segment title="Quick"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="changeSort:" destination="BYZ-38-t0r" eventType="valueChanged" id="mfE-Jo-8QM"/>
+                                                </connections>
                                             </segmentedControl>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J6s-58-IHg" customClass="BarView" customModule="_91ECormackAssn1" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="128.5" width="343" height="128"/>
@@ -138,8 +144,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="sortButton" destination="EBA-BL-E4F" id="NCy-Sf-Kwv"/>
                         <outletCollection property="barViews" destination="5Zw-JJ-sxh" collectionClass="NSMutableArray" id="stU-cJ-q8K"/>
                         <outletCollection property="barViews" destination="J6s-58-IHg" collectionClass="NSMutableArray" id="sb3-qi-3dh"/>
+                        <outletCollection property="sortControls" destination="JgG-Es-fwA" collectionClass="NSMutableArray" id="aYJ-RC-sds"/>
+                        <outletCollection property="sortControls" destination="GNi-iZ-NHi" collectionClass="NSMutableArray" id="3D4-MA-IVS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

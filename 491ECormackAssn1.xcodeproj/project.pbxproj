@@ -18,6 +18,7 @@
 		A06378F21E9886F2000CB0EA /* TimedInsertSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06378F11E9886F2000CB0EA /* TimedInsertSorter.swift */; };
 		A06378F41E988731000CB0EA /* TimedBubbleSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06378F31E988731000CB0EA /* TimedBubbleSorter.swift */; };
 		A06378F61E988774000CB0EA /* TimedMergeSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06378F51E988774000CB0EA /* TimedMergeSorter.swift */; };
+		A0D52DB91E99A48C00ABE935 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D52DB81E99A48C00ABE935 /* UISegmentedControl.swift */; };
 		A0EB76D91E95C41C00E45C03 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EB76D81E95C41C00E45C03 /* BarView.swift */; };
 		A0EECC0B1E965F610067708E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EECC091E965F610067708E /* Array.swift */; };
 		A0EECC0C1E965F610067708E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EECC0A1E965F610067708E /* Utilities.swift */; };
@@ -37,6 +38,7 @@
 		A06378F11E9886F2000CB0EA /* TimedInsertSorter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedInsertSorter.swift; sourceTree = "<group>"; };
 		A06378F31E988731000CB0EA /* TimedBubbleSorter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedBubbleSorter.swift; sourceTree = "<group>"; };
 		A06378F51E988774000CB0EA /* TimedMergeSorter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedMergeSorter.swift; sourceTree = "<group>"; };
+		A0D52DB81E99A48C00ABE935 /* UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		A0EB76D81E95C41C00E45C03 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarView.swift; path = View/BarView.swift; sourceTree = "<group>"; };
 		A0EECC091E965F610067708E /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		A0EECC0A1E965F610067708E /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				A0EECC091E965F610067708E /* Array.swift */,
 				A0EECC0A1E965F610067708E /* Utilities.swift */,
+				A0D52DB81E99A48C00ABE935 /* UISegmentedControl.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				A06378EC1E9862D7000CB0EA /* TimedQuickSorter.swift in Sources */,
 				A0EECC0C1E965F610067708E /* Utilities.swift in Sources */,
+				A0D52DB91E99A48C00ABE935 /* UISegmentedControl.swift in Sources */,
 				A05988921E97FB490020A078 /* TimedSorter.swift in Sources */,
 				A0628E081E940BDC00AF83F0 /* _91ECormackAssn1.xcdatamodeld in Sources */,
 				A0EECC0B1E965F610067708E /* Array.swift in Sources */,
